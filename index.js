@@ -19,7 +19,7 @@ app.get("/", async (req, res) => {
       .filter(item => item.type === "dir" && item.name)
       .map(item => item.name);
 
-    res.render('dsa')
+    res.render('dsa', { folders });
   } catch (err) {
     res.status(500).json({ error: err.message});
   }
@@ -32,7 +32,8 @@ app.get("/week/:name", async (req, res) => {
     const url = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/${BRANCH}/${folderName}/data.json`;
 
     const { data } = await axios.get(url);
-    res.json(data);
+    // res.json(data);
+    res.render('week', { folder: folderName, data });
   } catch (err) {
     res.status(500).json({ error: "Cannot fetch week data", details: err.message });
   }

@@ -40,71 +40,22 @@
             <p>Structured learning path covering fundamental to advanced DSA concepts</p>
             
             <div class="card-grid">
-                <div class="card">
-                    <div class="card-meta">
-                        <span class="badge">Week 1</span>
-                        <span class="badge difficulty-easy">Beginner</span>
-                        <span>📅 Jan 15, 2025</span>
+                <% let week = 1; %>
+                <% folders.forEach(folder => { %>
+                    <div class="card">
+                        <div class="card-meta">
+                            <span class="badge">Week <%= week %></span>
+                            <!-- <span class="badge difficulty-easy">Beginner</span> -->
+                            
+                        </div>
+                        <a href="/week/<%= folder %>/" class="" style="text-decoration: none; color: inherit"><h3><%= folder %></h3>
+                        <p></p>
+                        Start Lesson</a>
+                        <% week++; %>
                     </div>
-                    <h3>Arrays & Strings</h3>
-                    <p>Learn the fundamentals of arrays and string manipulation. Cover basic operations, two-pointer techniques, and sliding window patterns.</p>
-                    <a href="#" class="btn btn-primary">Start Lesson</a>
-                </div>
+                <% }); %>
 
-                <div class="card">
-                    <div class="card-meta">
-                        <span class="badge">Week 2</span>
-                        <span class="badge difficulty-easy">Beginner</span>
-                        <span>📅 Jan 22, 2025</span>
-                    </div>
-                    <h3>Linked Lists</h3>
-                    <p>Master linked list operations including insertion, deletion, reversal, and cycle detection. Practice with singly and doubly linked lists.</p>
-                    <a href="#" class="btn btn-primary">Start Lesson</a>
-                </div>
-
-                <div class="card">
-                    <div class="card-meta">
-                        <span class="badge">Week 3</span>
-                        <span class="badge difficulty-medium">Intermediate</span>
-                        <span>📅 Jan 29, 2025</span>
-                    </div>
-                    <h3>Stacks & Queues</h3>
-                    <p>Understand LIFO and FIFO data structures. Implement stacks and queues, solve parentheses matching, and queue-based problems.</p>
-                    <a href="#" class="btn btn-secondary">Coming Soon</a>
-                </div>
-
-                <div class="card">
-                    <div class="card-meta">
-                        <span class="badge">Week 4</span>
-                        <span class="badge difficulty-medium">Intermediate</span>
-                        <span>📅 Feb 5, 2025</span>
-                    </div>
-                    <h3>Binary Trees</h3>
-                    <p>Explore tree traversals (inorder, preorder, postorder), tree construction, and common tree algorithms like height calculation.</p>
-                    <a href="#" class="btn btn-secondary">Coming Soon</a>
-                </div>
-
-                <div class="card">
-                    <div class="card-meta">
-                        <span class="badge">Week 5</span>
-                        <span class="badge difficulty-hard">Advanced</span>
-                        <span>📅 Feb 12, 2025</span>
-                    </div>
-                    <h3>Binary Search Trees</h3>
-                    <p>Learn BST properties, insertion, deletion, and search operations. Practice with BST validation and common BST problems.</p>
-                    <a href="#" class="btn btn-secondary">Coming Soon</a>
-                </div>
-
-                <div class="card">
-                    <div class="card-meta">
-                        <span class="badge">Week 6</span>
-                        <span class="badge difficulty-hard">Advanced</span>
-                        <span>📅 Feb 19, 2025</span>
-                    </div>
-                    <h3>Graph Algorithms</h3>
-                    <p>Master graph representations, BFS, DFS, shortest path algorithms (Dijkstra), and topological sorting.</p>
-                    <a href="#" class="btn btn-secondary">Coming Soon</a>
-                </div>
+                
             </div>
         </section>
 

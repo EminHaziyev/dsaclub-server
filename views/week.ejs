@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Week 1: Arrays & Strings - DSA Club</title>
-    <link rel="stylesheet" href="styleweek.css">
+    <link rel="stylesheet" href="/styleweek.css">
 </head>
 <body>
     <!-- Header -->
@@ -24,90 +24,21 @@
     <main class="main">
         <!-- Breadcrumb -->
         <nav class="breadcrumb">
-            <a href="index.html">Home</a> / <a href="index.html#lessons">Lessons</a> / Week 1: Arrays & Strings
+            <a href="index.html">Home</a> / <a href="index.html#lessons">Lessons</a> / <%= data.week_name %>
         </nav>
 
         <!-- Week Header -->
         <section class="week-header">
-            <div class="week-meta">
-                <span class="badge">Week 1</span>
-                <span class="badge difficulty-easy">Beginner</span>
-                <span>📅 Jan 15, 2025</span>
-                <span>⏱️ 4-6 hours</span>
-            </div>
-            <h1>Arrays & Strings</h1>
-            <p>Master the fundamentals of arrays and string manipulation. This week covers basic operations, two-pointer techniques, sliding window patterns, and essential problem-solving strategies that form the foundation of algorithmic thinking.</p>
+            
+            <h1><%= data.week_name %></h1>
+            <p><%= data.week_description %></p>
         </section>
 
         <!-- Learning Objectives -->
-        <section class="section">
-            <h2>Learning Objectives</h2>
-            <ul>
-                <li>Understand array data structure and its operations (insertion, deletion, traversal)</li>
-                <li>Master string manipulation techniques and common patterns</li>
-                <li>Learn two-pointer technique for efficient array/string problems</li>
-                <li>Implement sliding window pattern for subarray problems</li>
-                <li>Practice time and space complexity analysis</li>
-            </ul>
-        </section>
+        
 
         <!-- Key Concepts -->
-        <section class="section">
-            <h2>Key Concepts</h2>
-            
-            <h3>1. Array Basics</h3>
-            <p>Arrays are contiguous memory locations that store elements of the same type. Understanding indexing, bounds checking, and basic operations is crucial.</p>
-            
-            <div class="code-block">
-                <pre>
-// Array declaration and initialization
-int[] arr = {1, 2, 3, 4, 5};
-
-// Accessing elements
-int first = arr[0];  // O(1) time complexity
-
-// Modifying elements
-arr[2] = 10;  // O(1) time complexity
-                </pre>
-            </div>
-
-            <h3>2. Two-Pointer Technique</h3>
-            <p>Use two pointers moving towards each other or in the same direction to solve problems efficiently in O(n) time.</p>
-            
-            <div class="code-block">
-                <pre>
-// Two pointers from both ends
-int left = 0, right = arr.length - 1;
-while (left < right) {
-    // Process elements at left and right
-    if (condition) {
-        left++;
-    } else {
-        right--;
-    }
-}
-                </pre>
-            </div>
-
-            <h3>3. Sliding Window</h3>
-            <p>Maintain a window of elements and slide it across the array to find optimal subarrays.</p>
-            
-            <div class="code-block">
-                <pre>
-// Fixed-size sliding window
-int windowSum = 0;
-for (int i = 0; i < k; i++) {
-    windowSum += arr[i];
-}
-
-int maxSum = windowSum;
-for (int i = k; i < arr.length; i++) {
-    windowSum = windowSum - arr[i-k] + arr[i];
-    maxSum = Math.max(maxSum, windowSum);
-}
-                </pre>
-            </div>
-        </section>
+        
 
         <!-- Practice Problems -->
         <section class="section">
@@ -115,89 +46,25 @@ for (int i = k; i < arr.length; i++) {
             <p>Complete these problems to master arrays and strings fundamentals:</p>
 
             <div class="problem-grid">
-                <div class="problem-card">
-                    <div class="problem-header">
-                        <div class="problem-title">1. Two Sum</div>
-                        <span class="problem-difficulty difficulty-easy">Easy</span>
-                    </div>
-                    <div class="problem-description">
-                        Given an array of integers and a target sum, return indices of two numbers that add up to the target. Use hash map for O(n) solution.
-                    </div>
-                    <div class="problem-links">
-                        <a href="https://leetcode.com/problems/two-sum/" target="_blank" class="btn btn-primary">Solve on LeetCode</a>
-                        <a href="#" class="btn btn-secondary">View Solution</a>
-                    </div>
-                </div>
 
-                <div class="problem-card">
-                    <div class="problem-header">
-                        <div class="problem-title">2. Maximum Subarray</div>
-                        <span class="problem-difficulty difficulty-easy">Easy</span>
+                <% data.tasks.forEach(task => { %>
+                    
+                    <div class="problem-card">
+                        <div class="problem-header">
+                            <div class="problem-title"><%= task.task_name %> </div>
+                        </div>
+                        
+                        <div class="problem-links">
+                            <a href="<%= task.task_link %>" target="_blank" class="btn btn-primary">Solve on LeetCode</a>
+                            <a href="<%= task.solution_link %>" class="btn btn-secondary">View Solution</a>
+                        </div>
                     </div>
-                    <div class="problem-description">
-                        Find the contiguous subarray with the largest sum using Kadane's algorithm. Classic dynamic programming approach.
-                    </div>
-                    <div class="problem-links">
-                        <a href="https://leetcode.com/problems/maximum-subarray/" target="_blank" class="btn btn-primary">Solve on LeetCode</a>
-                        <a href="#" class="btn btn-secondary">View Solution</a>
-                    </div>
-                </div>
 
-                <div class="problem-card">
-                    <div class="problem-header">
-                        <div class="problem-title">3. Rotate Array</div>
-                        <span class="problem-difficulty difficulty-medium">Medium</span>
-                    </div>
-                    <div class="problem-description">
-                        Rotate array to the right by k steps. Practice multiple approaches: extra space, cyclic replacements, and reverse method.
-                    </div>
-                    <div class="problem-links">
-                        <a href="https://leetcode.com/problems/rotate-array/" target="_blank" class="btn btn-primary">Solve on LeetCode</a>
-                        <a href="#" class="btn btn-secondary">View Solution</a>
-                    </div>
-                </div>
+                <% }) %>
 
-                <div class="problem-card">
-                    <div class="problem-header">
-                        <div class="problem-title">4. Contains Duplicate</div>
-                        <span class="problem-difficulty difficulty-easy">Easy</span>
-                    </div>
-                    <div class="problem-description">
-                        Check if array contains any duplicates. Compare different approaches: sorting, hash set, and their trade-offs.
-                    </div>
-                    <div class="problem-links">
-                        <a href="https://leetcode.com/problems/contains-duplicate/" target="_blank" class="btn btn-primary">Solve on LeetCode</a>
-                        <a href="#" class="btn btn-secondary">View Solution</a>
-                    </div>
-                </div>
 
-                <div class="problem-card">
-                    <div class="problem-header">
-                        <div class="problem-title">5. Best Time to Buy Stock</div>
-                        <span class="problem-difficulty difficulty-easy">Easy</span>
-                    </div>
-                    <div class="problem-description">
-                        Find maximum profit from buying and selling stock once. Track minimum price seen so far and maximum profit.
-                    </div>
-                    <div class="problem-links">
-                        <a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/" target="_blank" class="btn btn-primary">Solve on LeetCode</a>
-                        <a href="#" class="btn btn-secondary">View Solution</a>
-                    </div>
-                </div>
-
-                <div class="problem-card">
-                    <div class="problem-header">
-                        <div class="problem-title">Bonus: Valid Anagram</div>
-                        <span class="problem-difficulty difficulty-easy">Easy</span>
-                    </div>
-                    <div class="problem-description">
-                        Check if two strings are anagrams. Practice string manipulation and character frequency counting techniques.
-                    </div>
-                    <div class="problem-links">
-                        <a href="https://leetcode.com/problems/valid-anagram/" target="_blank" class="btn btn-primary">Solve on LeetCode</a>
-                        <a href="#" class="btn btn-secondary">View Solution</a>
-                    </div>
-                </div>
+                
+                
             </div>
         </section>
 
@@ -205,22 +72,13 @@ for (int i = k; i < arr.length; i++) {
         <section class="section">
             <h2>Additional Resources</h2>
             <ul>
-                <li><strong>Reading:</strong> Chapter 1-2 of "Cracking the Coding Interview"</li>
-                <li><strong>Video:</strong> <a href="#" style="color: #58a6ff;">Arrays and Strings Fundamentals</a> (30 min)</li>
-                <li><strong>Practice:</strong> Complete HackerRank Arrays track</li>
-                <li><strong>Theory:</strong> Review Big O notation for array operations</li>
+                <% data.resources.forEach(resource => { %>
+                    <li><a href="<%= resource %>" style="color: #58a6ff;"><%= resource %></a></li>
+                <% }) %>
+                
             </ul>
         </section>
-
-        <!-- Week Navigation -->
-        <nav class="week-nav">
-            <a href="#" class="nav-link">
-                ← Previous: Course Introduction
-            </a>
-            <a href="#" class="nav-link">
-                Next: Week 2 - Linked Lists →
-            </a>
-        </nav>
+        
     </main>
 
     <!-- Footer -->
