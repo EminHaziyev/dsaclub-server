@@ -21,7 +21,7 @@ app.get("/", async (req, res) => {
 
     res.json(folders);
   } catch (err) {
-    res.status(500).json({ error: "Cannot fetch weeks list", details: err.message });
+    res.status(500).json({ error: "week doesnt exists"});
   }
 });
 
