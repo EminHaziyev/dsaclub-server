@@ -3,13 +3,13 @@ const axios = require("axios");
 
 const app = express();
 const PORT = 3000;
-
-
+app.set("view engine", "ejs");
+app.set("views", "./views");
 const GITHUB_OWNER = "EminHaziyev";
 const GITHUB_REPO = "DsaClub-Peerstack";
 const BRANCH = "main"; 
 
-
+app.use(express.static('public'));
 app.get("/", async (req, res) => {
   try {
     const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents`;
@@ -19,9 +19,9 @@ app.get("/", async (req, res) => {
       .filter(item => item.type === "dir" && item.name)
       .map(item => item.name);
 
-    res.json(folders);
+    res.render('dsa')
   } catch (err) {
-    res.status(500).json({ error: "week doesnt exists"});
+    res.status(500).json({ error: err.message});
   }
 });
 
