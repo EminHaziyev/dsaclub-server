@@ -329,6 +329,7 @@
         /* About Section */
         .about-details {
             display: flex;
+            flex-direction: column;
             gap: 24px;
             margin-top: 32px;
         }
@@ -407,6 +408,15 @@
         .footer p {
             color: #7d8590;
             font-size: 14px;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: #1f6feb;
+        }
+        .links {
+            display: flex;
+            flex-direction: column;
         }
 
         /* Responsive */
