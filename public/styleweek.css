@@ -27,7 +27,7 @@
             justify-content: space-between;
         }
 
-        .logo {
+        /* .logo {
             display: flex;
             align-items: center;
             font-size: 20px;
@@ -40,7 +40,7 @@
             content: "📚";
             margin-right: 8px;
             font-size: 24px;
-        }
+        } */
 
         .nav {
             display: flex;
